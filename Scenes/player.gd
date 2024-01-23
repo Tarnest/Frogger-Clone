@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 4
+@export var speed = 4
 const JUMP_VELOCITY = -400.0
 const TILE_SIZE = 64
 
@@ -41,5 +41,5 @@ func _physics_process(_delta):
 func move(dir):
 	var end_position = position + dir * TILE_SIZE
 	tween = get_tree().create_tween()
-	tween.tween_property(self, "position", end_position, 1.0 / SPEED)
+	tween.tween_property(self, "position", end_position, 1.0 / speed)
 	tween.play()
