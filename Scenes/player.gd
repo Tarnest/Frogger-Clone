@@ -5,12 +5,13 @@ const JUMP_VELOCITY = -400.0
 const TILE_SIZE = 64
 
 var tween
+var active = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(_delta):
+func _process(_delta):
 	# Add the gravity.
 	# if not is_on_floor():
 	#	velocity.y += gravity * delta
@@ -28,7 +29,7 @@ func _physics_process(_delta):
 	# 	velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	var direction = Vector2.ZERO
-	if tween == null || !tween.is_running():
+	if (tween == null || !tween.is_running()) && active:
 		if Input.is_action_pressed("move_up"):
 			move(Vector2.UP)
 		if Input.is_action_pressed("move_down"):
@@ -43,3 +44,7 @@ func move(dir):
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "position", end_position, 1.0 / speed)
 	tween.play()
+
+
+func _on_start_button_pressed():
+	active = true
