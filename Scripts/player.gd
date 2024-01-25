@@ -28,6 +28,10 @@ func _process(_delta):
 	# 	velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	var direction = Vector2.ZERO
+	
+	if !$AnimatedSprite2D.is_playing():
+		$AnimatedSprite2D.play("idle")
+	
 	if (tween == null || !tween.is_running()) && active:
 		if Input.is_action_pressed("move_up"):
 			rotation_degrees = 0
@@ -45,10 +49,12 @@ func _process(_delta):
 
 func move(dir):
 	var end_position = position + dir * TILE_SIZE
+	
+	$AnimatedSprite2D.play("hop")
+	
 	tween = get_tree().create_tween()
 	tween.tween_property(self, "position", end_position, 1.0 / speed)
 	tween.play()
-
 
 func _on_start_button_pressed():
 	active = true
