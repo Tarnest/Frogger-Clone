@@ -42,6 +42,7 @@ func _process(_delta):
 			rotation_degrees = 90
 			move(Vector2.RIGHT)
 
+
 func move(dir):
 	var end_position = position + dir * TILE_SIZE
 	tween = get_tree().create_tween()
@@ -51,3 +52,7 @@ func move(dir):
 
 func _on_start_button_pressed():
 	active = true
+
+
+func _on_car_player_collision():
+	self.queue_free()

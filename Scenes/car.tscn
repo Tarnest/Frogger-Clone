@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d2ykyonqqxtvn"]
 
-[ext_resource type="Script" path="res://Scripts/car.gd" id="1_q245u"]
+[ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_e6g4i"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_x6m8i"]
 
@@ -8,7 +8,9 @@
 size = Vector2(100, 50)
 
 [node name="Car" type="CharacterBody2D"]
-script = ExtResource("1_q245u")
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_e6g4i")
 speed = 300
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -19,3 +21,8 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h5spj")
 metadata/_edit_lock_ = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+rect = Rect2(-50, -25, 100, 50)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,43 +1,30 @@
-[gd_scene load_steps=12 format=3 uid="uid://qgrcbvdylmjj"]
+[gd_scene load_steps=4 format=3 uid="uid://ca85vgf8stm54"]
 
-[ext_resource type="Texture2D" uid="uid://cu4yrw4ooa3tf" path="res://Images/sidewalk.png" id="2_vspnr"]
-[ext_resource type="Texture2D" uid="uid://dlynd4v0fql5l" path="res://Images/road.png" id="3_4s3sc"]
-[ext_resource type="Texture2D" uid="uid://co8wympsvtbgg" path="res://Images/grass2.png" id="3_trqeq"]
-[ext_resource type="Texture2D" uid="uid://d26rgb6qneseh" path="res://Images/water2.png" id="4_h2reo"]
-[ext_resource type="Texture2D" uid="uid://dch5goi4qiytt" path="res://Images/lilypad.png" id="5_2ggm3"]
+[ext_resource type="Texture2D" uid="uid://blxotfkulqdw1" path="res://Images/frogger_tilemap.png" id="1_tusra"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lfv7p"]
-texture = ExtResource("2_vspnr")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kjsat"]
+texture = ExtResource("1_tusra")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18yoa"]
-texture = ExtResource("3_4s3sc")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_piil6"]
-texture = ExtResource("3_trqeq")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8famm"]
-texture = ExtResource("4_h2reo")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ks47n"]
-texture = ExtResource("5_2ggm3")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_bt32l"]
 tile_size = Vector2i(64, 64)
-sources/1 = SubResource("TileSetAtlasSource_lfv7p")
-sources/2 = SubResource("TileSetAtlasSource_18yoa")
-sources/4 = SubResource("TileSetAtlasSource_piil6")
-sources/5 = SubResource("TileSetAtlasSource_8famm")
-sources/6 = SubResource("TileSetAtlasSource_ks47n")
+sources/0 = SubResource("TileSetAtlasSource_kjsat")
 
 [node name="GroundTiles" type="TileMap"]
 texture_filter = 1
