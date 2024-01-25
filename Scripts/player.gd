@@ -30,12 +30,16 @@ func _process(_delta):
 	var direction = Vector2.ZERO
 	if (tween == null || !tween.is_running()) && active:
 		if Input.is_action_pressed("move_up"):
+			rotation_degrees = 0
 			move(Vector2.UP)
 		if Input.is_action_pressed("move_down"):
+			rotation_degrees = 180
 			move(Vector2.DOWN)
 		if Input.is_action_pressed("move_left"):
+			rotation_degrees = 270
 			move(Vector2.LEFT)
 		if Input.is_action_pressed("move_right"):
+			rotation_degrees = 90
 			move(Vector2.RIGHT)
 
 func move(dir):

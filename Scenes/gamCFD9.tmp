@@ -1,10 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://hdmhexhdicbn"]
+[gd_scene load_steps=4 format=3 uid="uid://hdmhexhdicbn"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_6fn0q"]
 [ext_resource type="PackedScene" uid="uid://bsett54nxh4fc" path="res://Scenes/player.tscn" id="2_ekwsk"]
 [ext_resource type="PackedScene" path="res://Scenes/ground_tiles.tscn" id="3_tdq7t"]
-[ext_resource type="Script" path="res://Scenes/road.gd" id="4_3lwoe"]
-[ext_resource type="PackedScene" uid="uid://d2ykyonqqxtvn" path="res://Scenes/car.tscn" id="4_ctlov"]
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_6fn0q")
@@ -30,12 +28,7 @@ layer_0/tile_data = PackedInt32Array(917504, 1, 0, 917505, 1, 0, 917506, 1, 0, 9
 
 [node name="Player" parent="GroundTiles" instance=ExtResource("2_ekwsk")]
 position = Vector2(480, 928)
-
-[node name="Road #1" type="Node2D" parent="."]
-position = Vector2(64, 864)
-script = ExtResource("4_3lwoe")
-
-[node name="Car" parent="Road #1" instance=ExtResource("4_ctlov")]
+speed = null
 
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/StartButton" to="GroundTiles/Player" method="_on_start_button_pressed"]

@@ -15,7 +15,7 @@ func _ready():
 		direction = Vector2.LEFT
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	velocity = direction * speed
 	
-	move_and_slide()
+	move_and_collide(velocity * delta)
