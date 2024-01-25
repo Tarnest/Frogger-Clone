@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @export var speed = 4
-const JUMP_VELOCITY = -400.0
 const TILE_SIZE = 64
 
 var tween

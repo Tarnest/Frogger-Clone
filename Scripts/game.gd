@@ -7,9 +7,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
 func _on_start_button_pressed():
-	$StartButton.visible = false
+	$StartMenu/StartButton.visible = false
