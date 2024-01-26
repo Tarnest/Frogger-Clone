@@ -12,7 +12,6 @@ script = ExtResource("1_6fn0q")
 [node name="StartMenu" type="CanvasLayer" parent="."]
 
 [node name="StartButton" type="Button" parent="StartMenu"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -45,5 +44,8 @@ position = Vector2(264, 0)
 [node name="Car3" parent="Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(700, 0)
 
+[connection signal="button_pressed" from="." to="GroundTiles/Player" method="_on_game_button_pressed"]
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartMenu/StartButton" to="GroundTiles/Player" method="_on_start_button_pressed"]
+[connection signal="check_button" from="GroundTiles/Player" to="." method="_on_player_check_button"]
 [connection signal="death" from="GroundTiles/Player" to="." method="_on_player_death"]

@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
-# signal death()
+signal death(pos)
 
 @export var speed = 4
 const TILE_SIZE = 64
 
 var tween
-var active
 var start_position
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -14,8 +13,7 @@ var start_position
 
 func _ready():
 	start_position = position
-	active = false
-
+	
 
 func _process(_delta):
 	# Add the gravity.
@@ -32,7 +30,7 @@ func _process(_delta):
 	# if direction:
 	# 	velocity.x = direction * SPEED
 	# else:
-	# 	velocity.x = move_toward(velocity.x, 0, SPEED)
+	# 	velocity.x = move_toward(velocity.x, 0, SPEED)	
 	var direction = Vector2.ZERO
 	
 	if !$AnimatedSprite2D.is_playing():
@@ -40,7 +38,7 @@ func _process(_delta):
 	
 	# print(active)
 	
-	if (tween == null || !tween.is_running()) && active:
+	if (tween == null || !tween.is_running()):
 		if Input.is_action_pressed("move_up"):
 			rotation_degrees = 0
 			move(Vector2.UP)
@@ -64,17 +62,7 @@ func move(dir):
 	tween.tween_property(self, "position", end_position, 1.0 / speed)
 	tween.play()
 
-func _on_start_button_pressed():
-	active = true
-
-
 func _on_area_2d_body_entered(body):
-	print("not car?")
 	if body.is_in_group("Car"):
-		print("Car")
-		# emit_signal("death", start_position)
-		respawn()
-
-func respawn():
-	position = start_position
-	rotation = 0
+		queue_free()
+		emit_signal("death", start_position)
