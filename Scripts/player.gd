@@ -60,11 +60,6 @@ func _on_start_button_pressed():
 	active = true
 
 
-func _on_car_player_collision():
-	queue_free()
-
-
 func _on_area_2d_body_entered(body):
 	if body.name == "Car":
 		queue_free()
-	print(body.name)
