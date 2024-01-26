@@ -28,6 +28,6 @@ func _physics_process(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	if dir == "right":
-		position.x = position.x - 1500
+		position.x = position.x - 1350
 	elif dir == "left":
-		position.x = position.x + 1500
+		position.x = position.x + 1350

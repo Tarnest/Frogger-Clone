@@ -30,12 +30,19 @@ layer_0/tile_data = PackedInt32Array(917504, 196608, 2, 917505, 65536, 3, 917506
 
 [node name="Player" parent="GroundTiles" instance=ExtResource("2_ekwsk")]
 position = Vector2(480, 928)
+collision_mask = 2
 
 [node name="Road #1" type="Node2D" parent="."]
 position = Vector2(64, 864)
 script = ExtResource("4_3lwoe")
 
-[node name="Car" parent="Road #1" instance=ExtResource("4_ctlov")]
+[node name="Car" parent="Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+
+[node name="Car2" parent="Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(264, 0)
+
+[node name="Car3" parent="Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(700, 0)
 
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="StartMenu/StartButton" to="GroundTiles/Player" method="_on_start_button_pressed"]

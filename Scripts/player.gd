@@ -1,13 +1,20 @@
 extends CharacterBody2D
 
+# signal death()
+
 @export var speed = 4
 const TILE_SIZE = 64
 
 var tween
-var active = false
+var active
+var start_position
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+func _ready():
+	start_position = position
+	active = false
 
 
 func _process(_delta):
@@ -26,11 +33,12 @@ func _process(_delta):
 	# 	velocity.x = direction * SPEED
 	# else:
 	# 	velocity.x = move_toward(velocity.x, 0, SPEED)
-	
 	var direction = Vector2.ZERO
 	
 	if !$AnimatedSprite2D.is_playing():
 		$AnimatedSprite2D.play("idle")
+	
+	# print(active)
 	
 	if (tween == null || !tween.is_running()) && active:
 		if Input.is_action_pressed("move_up"):
@@ -61,5 +69,12 @@ func _on_start_button_pressed():
 
 
 func _on_area_2d_body_entered(body):
-	if body.name == "Car":
-		queue_free()
+	print("not car?")
+	if body.is_in_group("Car"):
+		print("Car")
+		# emit_signal("death", start_position)
+		respawn()
+
+func respawn():
+	position = start_position
+	rotation = 0
