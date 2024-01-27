@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://de0saa44mx3h2"]
+
+[ext_resource type="Texture2D" uid="uid://cv14p0tq1lr0s" path="res://Images/frogger_spritesheet.png" id="1_wwg2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys73f"]
+atlas = ExtResource("1_wwg2h")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_haigb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys73f")
+}],
+"loop": true,
+"name": &"home",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8y4k"]
+size = Vector2(50, 45)
+
+[node name="FrogHome" type="Area2D"]
+collision_layer = 8
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_haigb")
+animation = &"home"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w8y4k")

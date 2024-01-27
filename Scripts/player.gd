@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal death(pos)
+signal home(pos)
 
 @export var speed = 4
 const TILE_SIZE = 64
@@ -52,7 +53,6 @@ func _process(_delta):
 			rotation_degrees = 90
 			move(Vector2.RIGHT)
 
-
 func move(dir):
 	var end_position = position + dir * TILE_SIZE
 	
@@ -66,3 +66,13 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Car"):
 		queue_free()
 		emit_signal("death", start_position)
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Home"):
+		queue_free()
+		if !area.is_visible():
+			area.visible = true
+			home.emit(start_position)
+		else:
+			death.emit(start_position)
