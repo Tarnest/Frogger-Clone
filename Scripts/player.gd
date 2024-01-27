@@ -62,6 +62,14 @@ func move(dir):
 	tween.tween_property(self, "position", end_position, 1.0 / speed)
 	tween.play()
 
+func die():
+	queue_free()
+	death.emit(start_position)
+
+func reach_home():
+	queue_free()
+	home.emit(start_position)
+
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("Car"):
 		queue_free()
@@ -70,9 +78,12 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Home"):
-		queue_free()
 		if !area.is_visible():
 			area.visible = true
-			home.emit(start_position)
+			reach_home()
 		else:
-			death.emit(start_position)
+			die()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	die()

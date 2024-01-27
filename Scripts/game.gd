@@ -28,7 +28,6 @@ func _on_start_button_pressed():
 func _on_player_death(pos):
 	lives -= 1
 	respawn(pos)
-	
 
 
 func _on_player_home(pos):
