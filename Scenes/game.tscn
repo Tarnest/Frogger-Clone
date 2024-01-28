@@ -12,52 +12,35 @@
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_6fn0q")
 
-[node name="StartMenu" type="CanvasLayer" parent="."]
-
-[node name="StartButton" type="Button" parent="StartMenu"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -29.0
-offset_top = -15.5
-offset_right = 29.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "Start"
+[node name="Player" parent="." instance=ExtResource("2_ekwsk")]
+position = Vector2(480, 928)
 
 [node name="GroundTiles" parent="." instance=ExtResource("3_tdq7t")]
 layer_0/tile_data = PackedInt32Array(917504, 196608, 2, 917505, 65536, 3, 917506, 196608, 2, 917507, 196608, 2, 917508, 196608, 2, 917509, 65536, 3, 917510, 196608, 2, 917511, 65536, 3, 917512, 196608, 2, 917513, 196608, 2, 917514, 65536, 3, 917515, 196608, 2, 917516, 196608, 2, 917517, 65536, 3, 917518, 196608, 2, 851968, 131072, 3, 851969, 131072, 3, 851970, 196608, 3, 851971, 131072, 3, 851972, 131072, 3, 851973, 131072, 3, 851974, 131072, 3, 851975, 131072, 3, 851976, 196608, 3, 851977, 131072, 3, 851978, 131072, 3, 851979, 131072, 3, 851980, 196608, 3, 851981, 131072, 3, 851982, 131072, 3, 786446, 131072, 3, 786445, 131072, 3, 786444, 196608, 3, 786443, 131072, 3, 786442, 131072, 3, 786441, 131072, 3, 786440, 131072, 3, 786439, 131072, 3, 786438, 131072, 3, 786437, 131072, 3, 720901, 131072, 3, 720900, 131072, 3, 720899, 131072, 3, 786434, 131072, 3, 786433, 131072, 3, 786432, 131072, 3, 720896, 131072, 3, 720897, 196608, 3, 720898, 131072, 3, 786435, 196608, 3, 786436, 131072, 3, 720902, 131072, 3, 720903, 131072, 3, 720904, 196608, 3, 720905, 131072, 3, 720906, 131072, 3, 720907, 131072, 3, 720908, 131072, 3, 720909, 131072, 3, 720910, 131072, 3, 655374, 131072, 3, 589838, 196608, 3, 589837, 131072, 3, 589836, 131072, 3, 655372, 196608, 3, 655371, 131072, 3, 655370, 131072, 3, 655369, 131072, 3, 589833, 131072, 3, 589832, 196608, 3, 589831, 131072, 3, 589830, 131072, 3, 589829, 131072, 3, 589828, 131072, 3, 589827, 196608, 3, 589826, 131072, 3, 589825, 131072, 3, 589824, 131072, 3, 655360, 131072, 3, 655361, 131072, 3, 655362, 131072, 3, 655363, 131072, 3, 655364, 131072, 3, 655365, 131072, 3, 655366, 196608, 3, 655367, 131072, 3, 655368, 131072, 3, 589834, 131072, 3, 589835, 131072, 3, 655373, 131072, 3, 524288, 196608, 2, 524289, 65536, 3, 524290, 196608, 2, 524291, 196608, 2, 524292, 196608, 2, 524293, 65536, 3, 524294, 196608, 2, 524295, 196608, 2, 524296, 65536, 3, 524297, 196608, 2, 524298, 196608, 2, 524299, 196608, 2, 524300, 65536, 3, 524301, 196608, 2, 524302, 196608, 2, 65536, 0, 1, 0, 65536, 1, 1, 131072, 1, 2, 131072, 1, 65538, 196608, 0, 65539, 0, 1, 3, 65536, 1, 4, 65536, 1, 5, 131072, 1, 65541, 196608, 0, 65542, 0, 1, 6, 65536, 1, 7, 131072, 1, 8, 131072, 1, 65544, 196608, 0, 65545, 0, 1, 9, 65536, 1, 10, 65536, 1, 11, 131072, 1, 65547, 196608, 0, 65548, 0, 1, 12, 131072, 1, 13, 65536, 1, 14, 65536, 1, 65550, 196608, 0, 131072, 131072, 0, 196608, 196608, 1, 262144, 0, 2, 327680, 0, 2, 393216, 0, 2, 458752, 0, 3, 196609, 65536, 2, 262145, 0, 2, 327681, 0, 2, 393217, 0, 2, 458753, 0, 3, 131074, 65536, 0, 196610, 196608, 1, 262146, 0, 2, 327682, 0, 2, 393218, 0, 2, 458754, 0, 3, 196611, 196608, 1, 262147, 0, 2, 327683, 0, 2, 393219, 0, 2, 458755, 0, 3, 196612, 65536, 2, 262148, 0, 2, 327684, 0, 2, 393220, 0, 2, 458756, 0, 3, 196613, 196608, 1, 262149, 0, 2, 327685, 0, 2, 393221, 0, 2, 458757, 0, 3, 131078, 131072, 0, 196614, 196608, 1, 262150, 0, 2, 327686, 0, 2, 393222, 0, 2, 458758, 0, 3, 131079, 131072, 2, 196615, 65536, 2, 262151, 0, 2, 327687, 0, 2, 393223, 0, 2, 458759, 0, 3, 131080, 65536, 0, 196616, 196608, 1, 262152, 0, 2, 327688, 0, 2, 393224, 0, 2, 458760, 0, 3, 131081, 131072, 0, 196617, 196608, 1, 262153, 0, 2, 327689, 0, 2, 393225, 0, 2, 458761, 0, 3, 131082, 131072, 2, 196618, 65536, 2, 262154, 0, 2, 327690, 0, 2, 393226, 0, 2, 458762, 0, 3, 131083, 65536, 0, 196619, 196608, 1, 262155, 0, 2, 327691, 0, 2, 393227, 0, 2, 458763, 0, 3, 131084, 131072, 0, 196620, 196608, 1, 262156, 0, 2, 327692, 0, 2, 393228, 0, 2, 458764, 0, 3, 131085, 131072, 2, 196621, 65536, 2, 262157, 0, 2, 327693, 0, 2, 393229, 0, 2, 458765, 0, 3, 131086, 65536, 0, 196622, 196608, 1, 262158, 0, 2, 327694, 0, 2, 393230, 0, 2, 458766, 0, 3, 65537, 0, 0, 65540, 0, 0, 65543, 0, 0, 65546, 0, 0, 65549, 0, 0, 131075, 131072, 0, 131077, 65536, 0, 131073, 131072, 2, 131076, 131072, 2)
 
-[node name="Player" parent="GroundTiles" instance=ExtResource("2_ekwsk")]
-position = Vector2(480, 928)
+[node name="Home" parent="." instance=ExtResource("4_v3bvn")]
 
-[node name="Home" parent="GroundTiles" instance=ExtResource("4_v3bvn")]
-
-[node name="FrogHome" parent="GroundTiles/Home" groups=["Home"] instance=ExtResource("4_8j4np")]
+[node name="FrogHome" parent="Home" groups=["Home"] instance=ExtResource("4_8j4np")]
 visible = false
 position = Vector2(96, 160)
 rotation = -3.14159
 
-[node name="FrogHome2" parent="GroundTiles/Home" groups=["Home"] instance=ExtResource("4_8j4np")]
+[node name="FrogHome2" parent="Home" groups=["Home"] instance=ExtResource("4_8j4np")]
 visible = false
 position = Vector2(288, 160)
 rotation = -3.14159
 
-[node name="FrogHome3" parent="GroundTiles/Home" groups=["Home"] instance=ExtResource("4_8j4np")]
+[node name="FrogHome3" parent="Home" groups=["Home"] instance=ExtResource("4_8j4np")]
 visible = false
 position = Vector2(480, 160)
 rotation = -3.14159
 
-[node name="FrogHome4" parent="GroundTiles/Home" groups=["Home"] instance=ExtResource("4_8j4np")]
+[node name="FrogHome4" parent="Home" groups=["Home"] instance=ExtResource("4_8j4np")]
 visible = false
 position = Vector2(672, 160)
 rotation = -3.14159
 
-[node name="FrogHome5" parent="GroundTiles/Home" groups=["Home"] instance=ExtResource("4_8j4np")]
+[node name="FrogHome5" parent="Home" groups=["Home"] instance=ExtResource("4_8j4np")]
 visible = false
 position = Vector2(864, 160)
 rotation = -3.14159
@@ -197,6 +180,19 @@ speed = 50
 position = Vector2(256, -256)
 speed = 50
 
-[connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="death" from="GroundTiles/Player" to="." method="_on_player_death"]
-[connection signal="home" from="GroundTiles/Player" to="." method="_on_player_home"]
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_right = 200.0
+offset_bottom = 64.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "[center]SCORE: 0"
+autowrap_mode = 1
+
+[connection signal="death" from="Player" to="." method="_on_player_death"]
+[connection signal="home" from="Player" to="." method="_on_player_home"]

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var scene = preload("res://Scenes/player.tscn")
 var lives: int = 5
+var score = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,14 +21,12 @@ func respawn(pos):
 	player.position = pos
 	player.connect("death", Callable(self, "_on_player_death"))
 	player.connect("home", Callable(self, "_on_player_home"))
-	$GroundTiles.call_deferred("add_child", player)
-
-func _on_start_button_pressed():
-	$StartMenu/StartButton.visible = false
+	call_deferred("add_child", player)
 
 
 func _on_player_death(pos):
 	lives -= 1
+	updateScore(10)
 	respawn(pos)
 
 
@@ -36,3 +35,8 @@ func _on_player_home(pos):
 
 func lose():
 	print("lost")
+
+func updateScore(amount):
+	var score_text = $ScoreLabel.text.split(" ")
+	score += amount
+	$ScoreLabel.text = score_text[0] + " " + str(score)
