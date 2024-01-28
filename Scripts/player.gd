@@ -89,8 +89,7 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Car"):
 		queue_free()
 		emit_signal("death", start_position)
-	elif body.is_in_group("Log"):
-		print("Hi Log")
+	if body.is_in_group("Log"):
 		on_log = true
 		platform = body
 		platform_velocity = body.velocity
@@ -99,27 +98,27 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("Log"):
-		print("Bye Log")
 		on_log = false
 		if platform == body:
 			platform = null
 
 
 func _on_area_2d_area_entered(area):
-	if area.is_in_group("Home"):
+	if area.name == "Home":
+		die()
+	elif area.is_in_group("Home"):
 		if !area.is_visible():
 			area.visible = true
 			reach_home()
 		else:
 			die()
-	elif area.is_in_group("River"):
-		print("River")
+	if area.is_in_group("River"):
 		on_water = true
+	
 
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("River"):
-		print("River")
 		on_water = false
 
 

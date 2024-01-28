@@ -4,6 +4,7 @@
 size = Vector2(960, 40)
 
 [node name="Home" type="Area2D"]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(480, 160)
