@@ -12,6 +12,43 @@
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_6fn0q")
 
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 64.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]SCORE: 0"
+autowrap_mode = 1
+
+[node name="Lives" type="Node2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="Frog1" parent="Lives" instance=ExtResource("4_8j4np")]
+rotation = 3.14159
+
+[node name="Frog2" parent="Lives" instance=ExtResource("4_8j4np")]
+position = Vector2(64, 0)
+rotation = 3.14159
+
+[node name="Frog3" parent="Lives" instance=ExtResource("4_8j4np")]
+position = Vector2(128, 0)
+rotation = 3.14159
+
+[node name="Frog4" parent="Lives" instance=ExtResource("4_8j4np")]
+position = Vector2(192, 0)
+rotation = 3.14159
+
+[node name="Frog5" parent="Lives" instance=ExtResource("4_8j4np")]
+position = Vector2(256, 0)
+rotation = 3.14159
+
 [node name="Player" parent="." instance=ExtResource("2_ekwsk")]
 position = Vector2(480, 928)
 
@@ -179,20 +216,6 @@ speed = 50
 [node name="Log2" parent="Water/River Lane5" groups=["Log"] instance=ExtResource("8_v2i3l")]
 position = Vector2(256, -256)
 speed = 50
-
-[node name="ScoreLabel" type="RichTextLabel" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_right = 200.0
-offset_bottom = 64.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-bbcode_enabled = true
-text = "[center]SCORE: 0"
-autowrap_mode = 1
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="home" from="Player" to="." method="_on_player_home"]

@@ -28,6 +28,7 @@ func _on_player_death(pos):
 	lives -= 1
 	updateScore(10)
 	respawn(pos)
+	removeLife()
 
 
 func _on_player_home(pos):
@@ -40,3 +41,9 @@ func updateScore(amount):
 	var score_text = $ScoreLabel.text.split(" ")
 	score += amount
 	$ScoreLabel.text = score_text[0] + " " + str(score)
+
+func removeLife():
+	var frogs = $Lives.get_children()
+	if frogs != null: # TODO: FIX THIS
+		frogs.back().queue_free()
+	
