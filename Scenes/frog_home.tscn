@@ -18,7 +18,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8y4k"]
-size = Vector2(50, 45)
+size = Vector2(50, 56)
 
 [node name="FrogHome" type="Area2D"]
 collision_layer = 8

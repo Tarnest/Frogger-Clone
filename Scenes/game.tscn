@@ -160,11 +160,19 @@ position = Vector2(64, 480)
 position = Vector2(0, -64)
 speed = 50
 
+[node name="Log2" parent="Water/River Lane2" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(256, -64)
+speed = 50
+
 [node name="River Lane3" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane3" groups=["Log"] instance=ExtResource("8_v2i3l")]
 position = Vector2(0, -128)
+speed = 50
+
+[node name="Log2" parent="Water/River Lane3" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(256, -128)
 speed = 50
 
 [node name="River Lane4" type="Node2D" parent="Water"]
@@ -174,11 +182,19 @@ position = Vector2(64, 480)
 position = Vector2(0, -192)
 speed = 50
 
+[node name="Log2" parent="Water/River Lane4" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(256, -192)
+speed = 50
+
 [node name="River Lane5" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane5" groups=["Log"] instance=ExtResource("8_v2i3l")]
 position = Vector2(0, -256)
+speed = 50
+
+[node name="Log2" parent="Water/River Lane5" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(256, -256)
 speed = 50
 
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]
