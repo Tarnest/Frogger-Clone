@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6uaegovq2ydj" path="res://Images/cars_spritesheet.png" id="2_p43wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5spj"]
-size = Vector2(90, 54)
+size = Vector2(86, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbv5c"]
 atlas = ExtResource("2_p43wo")

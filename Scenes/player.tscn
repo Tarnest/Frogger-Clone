@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cv14p0tq1lr0s" path="res://Images/frogger_spritesheet.png" id="2_71v6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2x86"]
-size = Vector2(50, 50)
+size = Vector2(40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ch5g"]
 atlas = ExtResource("2_71v6v")
@@ -48,7 +48,7 @@ metadata/_edit_lock_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_dalua")
-animation = &"hop"
+animation = &"idle"
 metadata/_edit_lock_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

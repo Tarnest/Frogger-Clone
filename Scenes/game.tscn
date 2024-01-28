@@ -70,51 +70,21 @@ rotation = -3.14159
 
 [node name="Roads" type="Node2D" parent="."]
 
-[node name="Road #1" type="Node2D" parent="Roads"]
-position = Vector2(64, 864)
+[node name="Road #5" type="Node2D" parent="Roads"]
+position = Vector2(64, 608)
 
-[node name="Car" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
-speed = 250
+[node name="Car" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
+speed = 320
+car_type = "car2"
 
-[node name="Car2" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+[node name="Car2" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
-speed = 250
+speed = 320
 car_type = "car2"
 
-[node name="Car3" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
-position = Vector2(700, 0)
-speed = 250
-
-[node name="Road #2" type="Node2D" parent="Roads"]
-position = Vector2(64, 800)
-
-[node name="Car" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
-dir = "left"
-car_type = "car2"
-
-[node name="Car2" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
-position = Vector2(264, 0)
-dir = "left"
-
-[node name="Car3" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
-position = Vector2(700, 0)
-dir = "left"
-
-[node name="Road #3" type="Node2D" parent="Roads"]
-position = Vector2(64, 736)
-
-[node name="Car" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
-speed = 150
-
-[node name="Car2" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
-position = Vector2(264, 0)
-speed = 150
-car_type = "car2"
-
-[node name="Car3" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
-position = Vector2(700, 0)
-speed = 150
-car_type = "car2"
+[node name="Car3" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(572, 0)
+speed = 320
 
 [node name="Road #4" type="Node2D" parent="Roads"]
 position = Vector2(64, 672)
@@ -134,21 +104,51 @@ dir = "left"
 speed = 250
 car_type = "car2"
 
-[node name="Road #5" type="Node2D" parent="Roads"]
-position = Vector2(64, 608)
+[node name="Road #3" type="Node2D" parent="Roads"]
+position = Vector2(64, 736)
 
-[node name="Car" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
-speed = 320
-car_type = "car2"
+[node name="Car" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
+speed = 150
 
-[node name="Car2" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
+[node name="Car2" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
-speed = 320
+speed = 150
 car_type = "car2"
 
-[node name="Car3" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
-position = Vector2(572, 0)
-speed = 320
+[node name="Car3" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(700, 0)
+speed = 150
+car_type = "car2"
+
+[node name="Road #2" type="Node2D" parent="Roads"]
+position = Vector2(64, 800)
+
+[node name="Car" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
+dir = "left"
+car_type = "car2"
+
+[node name="Car2" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(264, 0)
+dir = "left"
+
+[node name="Car3" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(700, 0)
+dir = "left"
+
+[node name="Road #1" type="Node2D" parent="Roads"]
+position = Vector2(64, 864)
+
+[node name="Car" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+speed = 250
+
+[node name="Car2" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(264, 0)
+speed = 250
+car_type = "car2"
+
+[node name="Car3" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+position = Vector2(700, 0)
+speed = 250
 
 [node name="Water" parent="." groups=["Water"] instance=ExtResource("8_y204e")]
 
