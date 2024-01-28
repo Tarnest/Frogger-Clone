@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://hdmhexhdicbn"]
+[gd_scene load_steps=10 format=3 uid="uid://hdmhexhdicbn"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_6fn0q"]
 [ext_resource type="PackedScene" uid="uid://bsett54nxh4fc" path="res://Scenes/player.tscn" id="2_ekwsk"]
@@ -6,26 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://de0saa44mx3h2" path="res://Scenes/frog_home.tscn" id="4_8j4np"]
 [ext_resource type="PackedScene" uid="uid://d2ykyonqqxtvn" path="res://Scenes/car.tscn" id="4_ctlov"]
 [ext_resource type="PackedScene" uid="uid://vgfnyrmaghw4" path="res://Scenes/home.tscn" id="4_v3bvn"]
+[ext_resource type="PackedScene" uid="uid://bogux4hw0g73l" path="res://Scenes/turtles.tscn" id="8_tcihd"]
 [ext_resource type="PackedScene" uid="uid://jec86bpjhfp6" path="res://Scenes/log.tscn" id="8_v2i3l"]
 [ext_resource type="PackedScene" uid="uid://bpgv8w6hvxt6k" path="res://Scenes/water.tscn" id="8_y204e"]
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_6fn0q")
-
-[node name="ScoreLabel" type="RichTextLabel" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -150.0
-offset_right = 150.0
-offset_bottom = 64.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-text = "[center]SCORE: 0"
-autowrap_mode = 1
 
 [node name="Lives" type="Node2D" parent="."]
 position = Vector2(32, 32)
@@ -146,16 +132,19 @@ speed = 250
 position = Vector2(700, 0)
 dir = "left"
 speed = 250
+car_type = "car2"
 
 [node name="Road #5" type="Node2D" parent="Roads"]
 position = Vector2(64, 608)
 
 [node name="Car" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
 speed = 320
+car_type = "car2"
 
 [node name="Car2" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
 speed = 320
+car_type = "car2"
 
 [node name="Car3" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(572, 0)
@@ -166,56 +155,68 @@ speed = 320
 [node name="River Lane" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
-[node name="Log" parent="Water/River Lane" groups=["Log"] instance=ExtResource("8_v2i3l")]
-speed = 50
+[node name="Turtles" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
+position = Vector2(768, 0)
 
-[node name="Log2" parent="Water/River Lane" groups=["Log"] instance=ExtResource("8_v2i3l")]
-position = Vector2(256, 0)
-speed = 50
+[node name="Turtles2" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
+position = Vector2(512, 0)
 
 [node name="River Lane2" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
-[node name="Log" parent="Water/River Lane2" groups=["Log"] instance=ExtResource("8_v2i3l")]
+[node name="Log" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
 position = Vector2(0, -64)
 speed = 50
 
-[node name="Log2" parent="Water/River Lane2" groups=["Log"] instance=ExtResource("8_v2i3l")]
+[node name="Log2" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
 position = Vector2(256, -64)
 speed = 50
 
 [node name="River Lane3" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
-[node name="Log" parent="Water/River Lane3" groups=["Log"] instance=ExtResource("8_v2i3l")]
+[node name="Log" parent="Water/River Lane3" instance=ExtResource("8_v2i3l")]
 position = Vector2(0, -128)
 speed = 50
 
-[node name="Log2" parent="Water/River Lane3" groups=["Log"] instance=ExtResource("8_v2i3l")]
+[node name="Log2" parent="Water/River Lane3" instance=ExtResource("8_v2i3l")]
 position = Vector2(256, -128)
 speed = 50
 
 [node name="River Lane4" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
-[node name="Log" parent="Water/River Lane4" groups=["Log"] instance=ExtResource("8_v2i3l")]
-position = Vector2(0, -192)
-speed = 50
+[node name="Turtles" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
+position = Vector2(768, -192)
 
-[node name="Log2" parent="Water/River Lane4" groups=["Log"] instance=ExtResource("8_v2i3l")]
-position = Vector2(256, -192)
-speed = 50
+[node name="Turtles2" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
+position = Vector2(512, -192)
 
 [node name="River Lane5" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
-[node name="Log" parent="Water/River Lane5" groups=["Log"] instance=ExtResource("8_v2i3l")]
+[node name="Log" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
 position = Vector2(0, -256)
 speed = 50
 
-[node name="Log2" parent="Water/River Lane5" groups=["Log"] instance=ExtResource("8_v2i3l")]
+[node name="Log2" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
 position = Vector2(256, -256)
 speed = 50
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 64.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]SCORE: 0"
+autowrap_mode = 1
 
 [connection signal="death" from="Player" to="." method="_on_player_death"]
 [connection signal="home" from="Player" to="." method="_on_player_home"]

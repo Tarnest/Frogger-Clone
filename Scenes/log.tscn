@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ns2f"]
 size = Vector2(100, 50)
 
-[node name="Log" type="CharacterBody2D"]
+[node name="Log" type="CharacterBody2D" groups=["Log"]]
 collision_layer = 2
 script = ExtResource("1_yfudw")
 speed = 150

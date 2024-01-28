@@ -12,7 +12,7 @@ var start_position
 var platform: CharacterBody2D = null
 var platform_velocity
 var on_water = false
-var on_log = false
+var floating = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -56,9 +56,10 @@ func _process(_delta):
 			rotation_degrees = 90
 			move(Vector2.RIGHT)
 	
-	if on_water && !on_log:
+	if on_water && !floating:
 		die()
 	
+	print(velocity)
 	if platform != null:
 		velocity = platform_velocity
 		move_and_slide()
@@ -89,17 +90,17 @@ func _on_area_2d_body_entered(body):
 	if body.is_in_group("Car"):
 		queue_free()
 		emit_signal("death", start_position)
-	if body.is_in_group("Log"):
-		on_log = true
+	if body.is_in_group("Log") || body.is_in_group("Turtles"):
+		floating = true
 		platform = body
 		platform_velocity = body.velocity
 		
 
 
 func _on_area_2d_body_exited(body):
-	if body.is_in_group("Log"):
+	if body.is_in_group("Log") || body.is_in_group("Turtles"):
 		if platform == body:
-			on_log = false
+			floating = false
 			platform = null
 
 
