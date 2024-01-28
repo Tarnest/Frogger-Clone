@@ -4,6 +4,7 @@ extends CharacterBody2D
 #
 @export var dir = "right"
 @export var speed = 100
+@export var car_type = "car1"
 var direction
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,10 @@ func _ready():
 		direction = Vector2.RIGHT
 	elif dir == "left":
 		direction = Vector2.LEFT
+		rotation = deg_to_rad(180)
+	
+	if self.is_in_group("Car"):
+		$AnimatedSprite2D.play(car_type)
 
 
 func _physics_process(delta):

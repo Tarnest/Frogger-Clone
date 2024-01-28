@@ -1,27 +1,55 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2ykyonqqxtvn"]
+[gd_scene load_steps=7 format=3 uid="uid://d2ykyonqqxtvn"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_e6g4i"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_x6m8i"]
+[ext_resource type="Texture2D" uid="uid://6uaegovq2ydj" path="res://Images/cars_spritesheet.png" id="2_p43wo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5spj"]
-size = Vector2(100, 50)
+size = Vector2(90, 54)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbv5c"]
+atlas = ExtResource("2_p43wo")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55wbs"]
+atlas = ExtResource("2_p43wo")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12c14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbv5c")
+}],
+"loop": true,
+"name": &"car1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55wbs")
+}],
+"loop": true,
+"name": &"car2",
+"speed": 5.0
+}]
 
 [node name="Car" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_e6g4i")
 speed = 300
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(100, 50)
-texture = SubResource("CanvasTexture_x6m8i")
-metadata/_edit_lock_ = true
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 shape = SubResource("RectangleShape2D_h5spj")
 metadata/_edit_lock_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 rect = Rect2(-50, -25, 100, 50)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_12c14")
+animation = &"car1"
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

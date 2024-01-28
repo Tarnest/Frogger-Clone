@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://de0saa44mx3h2" path="res://Scenes/frog_home.tscn" id="4_8j4np"]
 [ext_resource type="PackedScene" uid="uid://d2ykyonqqxtvn" path="res://Scenes/car.tscn" id="4_ctlov"]
 [ext_resource type="PackedScene" uid="uid://vgfnyrmaghw4" path="res://Scenes/home.tscn" id="4_v3bvn"]
-[ext_resource type="PackedScene" uid="uid://j2r46n2we28b" path="res://Scenes/river_lane.tscn" id="7_mqpgl"]
 [ext_resource type="PackedScene" uid="uid://jec86bpjhfp6" path="res://Scenes/log.tscn" id="8_v2i3l"]
+[ext_resource type="PackedScene" uid="uid://bpgv8w6hvxt6k" path="res://Scenes/water.tscn" id="8_y204e"]
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_6fn0q")
@@ -68,91 +68,117 @@ rotation = -3.14159
 position = Vector2(64, 864)
 
 [node name="Car" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
+speed = 250
 
 [node name="Car2" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
+speed = 250
+car_type = "car2"
 
 [node name="Car3" parent="Roads/Road #1" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(700, 0)
+speed = 250
 
 [node name="Road #2" type="Node2D" parent="Roads"]
 position = Vector2(64, 800)
 
 [node name="Car" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
+dir = "left"
+car_type = "car2"
 
 [node name="Car2" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
+dir = "left"
 
 [node name="Car3" parent="Roads/Road #2" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(700, 0)
+dir = "left"
 
 [node name="Road #3" type="Node2D" parent="Roads"]
 position = Vector2(64, 736)
 
 [node name="Car" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
+speed = 150
 
 [node name="Car2" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
+speed = 150
+car_type = "car2"
 
 [node name="Car3" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(700, 0)
+speed = 150
+car_type = "car2"
 
 [node name="Road #4" type="Node2D" parent="Roads"]
 position = Vector2(64, 672)
 
 [node name="Car" parent="Roads/Road #4" groups=["Car"] instance=ExtResource("4_ctlov")]
+dir = "left"
+speed = 250
 
 [node name="Car2" parent="Roads/Road #4" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
+dir = "left"
+speed = 250
 
 [node name="Car3" parent="Roads/Road #4" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(700, 0)
+dir = "left"
+speed = 250
 
 [node name="Road #5" type="Node2D" parent="Roads"]
 position = Vector2(64, 608)
 
 [node name="Car" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
+speed = 320
 
 [node name="Car2" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
+speed = 320
 
 [node name="Car3" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
-position = Vector2(700, 0)
+position = Vector2(572, 0)
+speed = 320
 
-[node name="Water" type="Node2D" parent="."]
+[node name="Water" parent="." groups=["Water"] instance=ExtResource("8_y204e")]
 
-[node name="River Lane" parent="Water" groups=["River"] instance=ExtResource("7_mqpgl")]
-collision_layer = 4
+[node name="River Lane" type="Node2D" parent="Water"]
+position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane" groups=["Log"] instance=ExtResource("8_v2i3l")]
 speed = 50
 
-[node name="River Lane2" parent="Water" groups=["River"] instance=ExtResource("7_mqpgl")]
-position = Vector2(480, 416)
-collision_layer = 4
+[node name="Log2" parent="Water/River Lane" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(256, 0)
+speed = 50
+
+[node name="River Lane2" type="Node2D" parent="Water"]
+position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane2" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(0, -64)
 speed = 50
 
-[node name="River Lane3" parent="Water" groups=["River"] instance=ExtResource("7_mqpgl")]
-position = Vector2(480, 352)
-collision_layer = 4
+[node name="River Lane3" type="Node2D" parent="Water"]
+position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane3" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(0, -128)
 speed = 50
 
-[node name="River Lane4" parent="Water" groups=["River"] instance=ExtResource("7_mqpgl")]
-position = Vector2(480, 288)
-collision_layer = 4
+[node name="River Lane4" type="Node2D" parent="Water"]
+position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane4" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(0, -192)
 speed = 50
 
-[node name="River Lane5" parent="Water" groups=["River"] instance=ExtResource("7_mqpgl")]
-position = Vector2(480, 224)
-collision_layer = 4
+[node name="River Lane5" type="Node2D" parent="Water"]
+position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane5" groups=["Log"] instance=ExtResource("8_v2i3l")]
+position = Vector2(0, -256)
 speed = 50
 
 [connection signal="pressed" from="StartMenu/StartButton" to="." method="_on_start_button_pressed"]

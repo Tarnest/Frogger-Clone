@@ -93,13 +93,15 @@ func _on_area_2d_body_entered(body):
 		on_log = true
 		platform = body
 		platform_velocity = body.velocity
+		print("Enter Log")
 		
 
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("Log"):
-		on_log = false
+		print("Leave Log")
 		if platform == body:
+			on_log = false
 			platform = null
 
 
@@ -112,15 +114,21 @@ func _on_area_2d_area_entered(area):
 			reach_home()
 		else:
 			die()
-	if area.is_in_group("River"):
+	if area.is_in_group("Water"):
 		on_water = true
+		print("Enter River")
 	
 
 
 func _on_area_2d_area_exited(area):
-	if area.is_in_group("River"):
+	if area.is_in_group("Water"):
 		on_water = false
+		print("Leave River")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	die()
+
+
+func wait(num):
+	await get_tree().create_timer(num).timeout

@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://j2r46n2we28b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqlet"]
-size = Vector2(960, 50)
+size = Vector2(960, 64)
 
 [node name="River Lane" type="Area2D"]
 position = Vector2(480, 480)
