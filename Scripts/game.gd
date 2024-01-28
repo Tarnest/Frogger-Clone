@@ -10,7 +10,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if lives <= 0:
+		lose()
 
 
 func respawn(pos):
@@ -32,3 +33,6 @@ func _on_player_death(pos):
 
 func _on_player_home(pos):
 	respawn(pos)
+
+func lose():
+	print("lost")

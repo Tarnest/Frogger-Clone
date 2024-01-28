@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cv14p0tq1lr0s" path="res://Images/frogger_spritesheet.png" id="2_71v6v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a2x86"]
-size = Vector2(64, 64)
+size = Vector2(64, 50)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ch5g"]
 atlas = ExtResource("2_71v6v")
@@ -34,6 +34,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 1
 collision_mask = 14
 script = ExtResource("1_j1lpm")
 
@@ -53,5 +54,7 @@ metadata/_edit_lock_ = true
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
