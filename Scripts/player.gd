@@ -59,7 +59,6 @@ func _process(_delta):
 	if on_water && !floating:
 		die()
 	
-	print(velocity)
 	if platform != null:
 		velocity = platform_velocity
 		move_and_slide()
