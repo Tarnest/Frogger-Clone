@@ -163,6 +163,14 @@ speed = 100
 position = Vector2(256, -256)
 speed = 100
 
+[node name="Log3" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
+position = Vector2(512, -256)
+speed = 100
+
+[node name="Log4" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
+position = Vector2(768, -256)
+speed = 100
+
 [node name="River Lane4" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
@@ -172,6 +180,10 @@ speed = 120
 
 [node name="Turtles2" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
 position = Vector2(512, -192)
+speed = 120
+
+[node name="Turtles3" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
+position = Vector2(384, -192)
 speed = 120
 
 [node name="River Lane3" type="Node2D" parent="Water"]
@@ -185,6 +197,14 @@ speed = 175
 position = Vector2(256, -128)
 speed = 175
 
+[node name="Log3" parent="Water/River Lane3" instance=ExtResource("8_v2i3l")]
+position = Vector2(384, -128)
+speed = 175
+
+[node name="Log4" parent="Water/River Lane3" instance=ExtResource("8_v2i3l")]
+position = Vector2(640, -128)
+speed = 175
+
 [node name="River Lane2" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
@@ -194,6 +214,9 @@ position = Vector2(0, -64)
 [node name="Log2" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
 position = Vector2(256, -64)
 
+[node name="Log3" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
+position = Vector2(576, -64)
+
 [node name="River Lane" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
@@ -202,6 +225,12 @@ position = Vector2(768, 0)
 
 [node name="Turtles2" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
 position = Vector2(512, 0)
+
+[node name="Turtles3" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
+position = Vector2(384, 0)
+
+[node name="Turtles4" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
+position = Vector2(64, 0)
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
 anchors_preset = 5
