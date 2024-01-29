@@ -1,28 +1,90 @@
-[gd_scene load_steps=4 format=3 uid="uid://jec86bpjhfp6"]
+[gd_scene load_steps=10 format=3 uid="uid://btk7lrkyfl3ns"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_yfudw"]
+[ext_resource type="Texture2D" uid="uid://cb147b76ai7i8" path="res://Images/log_spritesheet.png" id="2_7n2gw"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_fyu22"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nupfq"]
+atlas = ExtResource("2_7n2gw")
+region = Rect2(0, 0, 128, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy3gf"]
+atlas = ExtResource("2_7n2gw")
+region = Rect2(0, 64, 192, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg1a1"]
+atlas = ExtResource("2_7n2gw")
+region = Rect2(0, 128, 256, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03d1b"]
+atlas = ExtResource("2_7n2gw")
+region = Rect2(0, 192, 320, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbhl0"]
+atlas = ExtResource("2_7n2gw")
+region = Rect2(0, 256, 384, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4q4d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nupfq")
+}],
+"loop": true,
+"name": &"log1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy3gf")
+}],
+"loop": true,
+"name": &"log2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg1a1")
+}],
+"loop": true,
+"name": &"log3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_03d1b")
+}],
+"loop": true,
+"name": &"log4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbhl0")
+}],
+"loop": true,
+"name": &"log5",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ns2f"]
-size = Vector2(100, 50)
+size = Vector2(120, 70)
 
 [node name="Log" type="CharacterBody2D" groups=["Log"]]
 collision_layer = 2
 script = ExtResource("1_yfudw")
 speed = 150
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(100, 50)
-texture = SubResource("CanvasTexture_fyu22")
-metadata/_edit_lock_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f4q4d")
+animation = &"log1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2ns2f")
 metadata/_edit_lock_ = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-rect = Rect2(-50, -25, 100, 50)
+rect = Rect2(-60, -26, 120, 52)
 metadata/_edit_lock_ = true
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

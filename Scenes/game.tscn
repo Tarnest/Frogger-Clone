@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_6fn0q"]
 [ext_resource type="PackedScene" uid="uid://bsett54nxh4fc" path="res://Scenes/player.tscn" id="2_ekwsk"]
-[ext_resource type="PackedScene" uid="uid://ca85vgf8stm54" path="res://Scenes/ground_tiles.tscn" id="3_tdq7t"]
-[ext_resource type="PackedScene" uid="uid://de0saa44mx3h2" path="res://Scenes/frog_home.tscn" id="4_8j4np"]
-[ext_resource type="PackedScene" uid="uid://d2ykyonqqxtvn" path="res://Scenes/car.tscn" id="4_ctlov"]
-[ext_resource type="PackedScene" uid="uid://vgfnyrmaghw4" path="res://Scenes/home.tscn" id="4_v3bvn"]
-[ext_resource type="PackedScene" uid="uid://bogux4hw0g73l" path="res://Scenes/turtles.tscn" id="8_tcihd"]
-[ext_resource type="PackedScene" uid="uid://jec86bpjhfp6" path="res://Scenes/log.tscn" id="8_v2i3l"]
-[ext_resource type="PackedScene" uid="uid://bpgv8w6hvxt6k" path="res://Scenes/water.tscn" id="8_y204e"]
+[ext_resource type="PackedScene" uid="uid://qgrcbvdylmjj" path="res://Scenes/ground_tiles.tscn" id="3_tdq7t"]
+[ext_resource type="PackedScene" path="res://Scenes/frog_home.tscn" id="4_8j4np"]
+[ext_resource type="PackedScene" uid="uid://c8dwd6fpexkg4" path="res://Scenes/car.tscn" id="4_ctlov"]
+[ext_resource type="PackedScene" path="res://Scenes/home.tscn" id="4_v3bvn"]
+[ext_resource type="PackedScene" path="res://Scenes/turtles.tscn" id="8_tcihd"]
+[ext_resource type="PackedScene" uid="uid://btk7lrkyfl3ns" path="res://Scenes/log.tscn" id="8_v2i3l"]
+[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="8_y204e"]
 
 [node name="Game" type="CanvasLayer"]
 script = ExtResource("1_6fn0q")
@@ -158,16 +158,13 @@ position = Vector2(64, 480)
 [node name="Log" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
 position = Vector2(0, -256)
 speed = 100
+log_type = "log2"
 
 [node name="Log2" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
-position = Vector2(256, -256)
+position = Vector2(320, -256)
 speed = 100
 
 [node name="Log3" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
-position = Vector2(512, -256)
-speed = 100
-
-[node name="Log4" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
 position = Vector2(768, -256)
 speed = 100
 
@@ -176,15 +173,15 @@ position = Vector2(64, 480)
 
 [node name="Turtles" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
 position = Vector2(768, -192)
-speed = 120
+speed = 200
 
 [node name="Turtles2" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
 position = Vector2(512, -192)
-speed = 120
+speed = 200
 
 [node name="Turtles3" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
 position = Vector2(384, -192)
-speed = 120
+speed = 200
 
 [node name="River Lane3" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
@@ -194,28 +191,24 @@ position = Vector2(0, -128)
 speed = 175
 
 [node name="Log2" parent="Water/River Lane3" instance=ExtResource("8_v2i3l")]
-position = Vector2(256, -128)
+position = Vector2(512, -128)
 speed = 175
-
-[node name="Log3" parent="Water/River Lane3" instance=ExtResource("8_v2i3l")]
-position = Vector2(384, -128)
-speed = 175
-
-[node name="Log4" parent="Water/River Lane3" instance=ExtResource("8_v2i3l")]
-position = Vector2(640, -128)
-speed = 175
+log_type = "log2"
 
 [node name="River Lane2" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
 [node name="Log" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
 position = Vector2(0, -64)
+log_type = "log2"
 
 [node name="Log2" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
 position = Vector2(256, -64)
+log_type = "log2"
 
 [node name="Log3" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
-position = Vector2(576, -64)
+position = Vector2(768, -64)
+log_type = "log2"
 
 [node name="River Lane" type="Node2D" parent="Water"]
 position = Vector2(64, 480)

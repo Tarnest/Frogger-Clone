@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2ykyonqqxtvn"]
+[gd_scene load_steps=7 format=3 uid="uid://c8dwd6fpexkg4"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_e6g4i"]
 [ext_resource type="Texture2D" uid="uid://6uaegovq2ydj" path="res://Images/cars_spritesheet.png" id="2_p43wo"]

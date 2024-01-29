@@ -10,7 +10,7 @@ var tween
 var start_position
 
 var platform: CharacterBody2D = null
-var platform_velocity
+var platform_velocity = Vector2.ZERO
 var on_water = false
 var floating = false
 
@@ -42,7 +42,7 @@ func _process(_delta):
 	if !$AnimatedSprite2D.is_playing():
 		$AnimatedSprite2D.play("idle")
 	
-	if (tween == null || !tween.is_running()):
+	if tween == null || !tween.is_running():
 		if Input.is_action_pressed("move_up"):
 			rotation_degrees = 0
 			move(Vector2.UP)
@@ -65,7 +65,7 @@ func _process(_delta):
 	else:
 		velocity = Vector2.ZERO
 
-func move(dir):
+func move(dir):	
 	var end_position = position + dir * TILE_SIZE
 	
 	$AnimatedSprite2D.play("hop")
@@ -90,6 +90,7 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 		emit_signal("death", start_position)
 	if body.is_in_group("Log") || body.is_in_group("Turtles"):
+		print("Enter Log/Turtle")
 		floating = true
 		platform = body
 		platform_velocity = body.velocity
@@ -98,6 +99,7 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("Log") || body.is_in_group("Turtles"):
+		print("Exit Log/Turtle")
 		if platform == body:
 			floating = false
 			platform = null
