@@ -5,7 +5,10 @@ signal camera_panned
 var scene = preload("res://Scenes/player.tscn")
 var lives: int = 5
 var score = 0
+var lilypads_reached = 0
 var tween
+
+var game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +23,12 @@ func _process(_delta):
 	
 	if lives <= 0:
 		lose()
+		
+	if game_over && Input.is_action_pressed("restart_game"):
+		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
+	
+	if lilypads_reached == 5:
+		win()
 
 
 func respawn(pos):
@@ -28,20 +37,37 @@ func respawn(pos):
 	player.position = pos
 	player.connect("death", Callable(self, "_on_player_death"))
 	player.connect("home", Callable(self, "_on_player_home"))
+	player.connect("movement_points", Callable(self, "_on_player_move_up"))
+	self.connect("camera_panned", Callable(player, "_on_game_camera_panned"))
 	call_deferred("add_child", player)
+	camera_panned.emit()
 
 
 func _on_player_death(pos):
-	respawn(pos)
 	removeLife()
+	if lives > 0:
+		respawn(pos)
 
 
 func _on_player_home(pos):
-	respawn(pos)
 	update_score(40)
+	lilypads_reached += 1
+	if lilypads_reached < 5:
+		respawn(pos)
+
+
+func _on_player_move_up():
+	update_score(10)
+
+
+func win():
+	$WinLabel.visible = true
+	game_over = true
+
 
 func lose():
-	print("lost")
+	$GameOverLabel.visible = true
+	game_over = true
 
 func update_score(amount):
 	var score_text = $ScoreLabel.text.split(" ")

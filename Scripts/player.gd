@@ -2,23 +2,28 @@ extends CharacterBody2D
 
 signal death(pos)
 signal home(pos)
+signal movement_points
 
 @export var speed = 4
 const TILE_SIZE = 64
 
 var tween
 var start_position
+var highest_position
+var active = false
 
 var platform: CharacterBody2D = null
 var platform_velocity = Vector2.ZERO
 var on_water = false
 var floating = false
 
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 # var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _ready():
 	start_position = position
+	highest_position = position.y
 
 
 func _process(_delta):
@@ -42,7 +47,7 @@ func _process(_delta):
 	if !$AnimatedSprite2D.is_playing():
 		$AnimatedSprite2D.play("idle")
 	
-	if tween == null || !tween.is_running():
+	if active && (tween == null || !tween.is_running()):
 		if Input.is_action_pressed("move_up"):
 			rotation_degrees = 0
 			move(Vector2.UP)
@@ -64,6 +69,11 @@ func _process(_delta):
 		move_and_slide()
 	else:
 		velocity = Vector2.ZERO
+	
+	if position.y <= highest_position - 64:
+		highest_position = position.y
+		movement_points.emit()
+
 
 func move(dir):	
 	var end_position = position + dir * TILE_SIZE
@@ -128,3 +138,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 
 func wait(num):
 	await get_tree().create_timer(num).timeout
+
+
+func _on_game_camera_panned():
+	active = true
