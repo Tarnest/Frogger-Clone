@@ -1,16 +1,20 @@
 extends CharacterBody2D
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 #var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-#
 @export var dir = "right"
 @export var speed = 100
 @export var car_type = "car1"
 @export var log_type = "log1"
 @export var turtle_type = "turtle1"
-var direction
+
+var direction = Vector2.ZERO
+var active = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var game = get_tree().get_root().get_node("Game")
+	game.connect("camera_panned", Callable(self, "_on_camera_pan"))
+	
 	if dir == "right":
 		direction = Vector2.RIGHT
 	elif dir == "left":
@@ -28,7 +32,8 @@ func _ready():
 func _physics_process(delta):
 	velocity = direction * speed
 	
-	move_and_slide()
+	if active:
+		move_and_slide()
 
 
 func change_log(type):
@@ -66,6 +71,10 @@ func change_turtle(type):
 		"turtle4":
 			$CollisionShape2D.shape.size.x = 256
 			$VisibleOnScreenNotifier2D.set_rect(Rect2(-128, -30, 256, 60))
+
+
+func _on_camera_pan():
+	active = true
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

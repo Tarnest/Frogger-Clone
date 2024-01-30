@@ -1,16 +1,23 @@
 extends CanvasLayer
 
+signal camera_panned
+
 var scene = preload("res://Scenes/player.tscn")
 var lives: int = 5
 var score = 0
+var tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
+	tween = get_tree().create_tween()
+	await tween.tween_property($start_camera, "position", Vector2(480, 480), 3).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if tween != null && !tween.is_running():
+		tween = null
+		camera_panned.emit()
+	
 	if lives <= 0:
 		lose()
 

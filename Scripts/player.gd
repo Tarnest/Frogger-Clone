@@ -90,7 +90,6 @@ func _on_area_2d_body_entered(body):
 		queue_free()
 		emit_signal("death", start_position)
 	if body.is_in_group("Log") || body.is_in_group("Turtles"):
-		print("Enter Log/Turtle")
 		floating = true
 		platform = body
 		platform_velocity = body.velocity
@@ -99,7 +98,6 @@ func _on_area_2d_body_entered(body):
 
 func _on_area_2d_body_exited(body):
 	if body.is_in_group("Log") || body.is_in_group("Turtles"):
-		print("Exit Log/Turtle")
 		if platform == body:
 			floating = false
 			platform = null
