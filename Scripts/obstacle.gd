@@ -22,7 +22,6 @@ func _ready():
 	if self.is_in_group("Log"):
 		change_log(log_type)
 	if self.is_in_group("Turtles"):
-		print(turtle_type)
 		change_turtle(turtle_type)
 
 
