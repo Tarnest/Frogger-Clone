@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8dwd6fpexkg4"]
+[gd_scene load_steps=9 format=3 uid="uid://c8dwd6fpexkg4"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_e6g4i"]
 [ext_resource type="Texture2D" uid="uid://6uaegovq2ydj" path="res://Images/cars_spritesheet.png" id="2_p43wo"]
+[ext_resource type="Texture2D" uid="uid://ci8rmw8wigxe0" path="res://Images/cars_spritesheet_with_decal.png" id="3_o0y3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5spj"]
 size = Vector2(86, 42)
@@ -13,6 +14,10 @@ region = Rect2(0, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_55wbs"]
 atlas = ExtResource("2_p43wo")
 region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijq0n"]
+atlas = ExtResource("3_o0y3g")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_12c14"]
 animations = [{
@@ -30,6 +35,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"car2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijq0n")
+}],
+"loop": true,
+"name": &"car3",
 "speed": 5.0
 }]
 

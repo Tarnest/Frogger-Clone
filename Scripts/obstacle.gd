@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var speed = 100
 @export var car_type = "car1"
 @export var log_type = "log1"
+@export var turtle_type = "turtle1"
 var direction
 
 # Called when the node enters the scene tree for the first time.
@@ -20,11 +21,20 @@ func _ready():
 		$AnimatedSprite2D.play(car_type)
 	if self.is_in_group("Log"):
 		change_log(log_type)
+	if self.is_in_group("Turtles"):
+		print(turtle_type)
+		change_turtle(turtle_type)
 
 
-func change_log(log_type):
-	$AnimatedSprite2D.play(log_type)
-	match log_type:
+func _physics_process(delta):
+	velocity = direction * speed
+	
+	move_and_slide()
+
+
+func change_log(type):
+	$AnimatedSprite2D.play(type)
+	match type:
 		"log1":
 			$CollisionShape2D.shape.size.x = 120
 			$VisibleOnScreenNotifier2D.set_rect(Rect2(-60, -26, 120, 52))
@@ -42,10 +52,21 @@ func change_log(log_type):
 			$VisibleOnScreenNotifier2D.set_rect(Rect2(-180, -26, 360, 52))
 
 
-func _physics_process(delta):
-	velocity = direction * speed
-	
-	move_and_slide()
+func change_turtle(type):
+	$AnimatedSprite2D.play(type)
+	match type:
+		"turtle1":
+			$CollisionShape2D.shape.size.x = 64
+			$VisibleOnScreenNotifier2D.set_rect(Rect2(-32, -30, 64, 60))
+		"turtle2":
+			$CollisionShape2D.shape.size.x = 128
+			$VisibleOnScreenNotifier2D.set_rect(Rect2(-64, -30, 128, 60))
+		"turtle3":
+			$CollisionShape2D.shape.size.x = 192
+			$VisibleOnScreenNotifier2D.set_rect(Rect2(-96, -30, 192, 60))
+		"turtle4":
+			$CollisionShape2D.shape.size.x = 256
+			$VisibleOnScreenNotifier2D.set_rect(Rect2(-128, -30, 256, 60))
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

@@ -67,6 +67,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ns2f"]
+resource_local_to_scene = true
 size = Vector2(120, 70)
 
 [node name="Log" type="CharacterBody2D" groups=["Log"]]

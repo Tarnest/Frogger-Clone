@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/frog_home.tscn" id="4_8j4np"]
 [ext_resource type="PackedScene" uid="uid://c8dwd6fpexkg4" path="res://Scenes/car.tscn" id="4_ctlov"]
 [ext_resource type="PackedScene" path="res://Scenes/home.tscn" id="4_v3bvn"]
-[ext_resource type="PackedScene" path="res://Scenes/turtles.tscn" id="8_tcihd"]
+[ext_resource type="PackedScene" uid="uid://blfgg1dogu71c" path="res://Scenes/turtles.tscn" id="8_tcihd"]
 [ext_resource type="PackedScene" uid="uid://btk7lrkyfl3ns" path="res://Scenes/log.tscn" id="8_v2i3l"]
 [ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="8_y204e"]
 
@@ -80,7 +80,7 @@ car_type = "car2"
 [node name="Car2" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
 speed = 320
-car_type = "car2"
+car_type = "car3"
 
 [node name="Car3" parent="Roads/Road #5" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(572, 0)
@@ -92,11 +92,13 @@ position = Vector2(64, 672)
 [node name="Car" parent="Roads/Road #4" groups=["Car"] instance=ExtResource("4_ctlov")]
 dir = "left"
 speed = 250
+car_type = "car3"
 
 [node name="Car2" parent="Roads/Road #4" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
 dir = "left"
 speed = 250
+car_type = "car3"
 
 [node name="Car3" parent="Roads/Road #4" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(700, 0)
@@ -113,12 +115,11 @@ speed = 150
 [node name="Car2" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(264, 0)
 speed = 150
-car_type = "car2"
+car_type = "car3"
 
 [node name="Car3" parent="Roads/Road #3" groups=["Car"] instance=ExtResource("4_ctlov")]
 position = Vector2(700, 0)
 speed = 150
-car_type = "car2"
 
 [node name="Road #2" type="Node2D" parent="Roads"]
 position = Vector2(64, 800)
@@ -167,6 +168,7 @@ speed = 100
 [node name="Log3" parent="Water/River Lane5" instance=ExtResource("8_v2i3l")]
 position = Vector2(768, -256)
 speed = 100
+log_type = "log4"
 
 [node name="River Lane4" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
@@ -174,14 +176,17 @@ position = Vector2(64, 480)
 [node name="Turtles" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
 position = Vector2(768, -192)
 speed = 200
+turtle_type = "turtle2"
 
 [node name="Turtles2" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
-position = Vector2(512, -192)
+position = Vector2(320, -192)
 speed = 200
+turtle_type = "turtle4"
 
 [node name="Turtles3" parent="Water/River Lane4" instance=ExtResource("8_tcihd")]
-position = Vector2(384, -192)
+position = Vector2(0, -192)
 speed = 200
+turtle_type = "turtle2"
 
 [node name="River Lane3" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
@@ -203,27 +208,26 @@ position = Vector2(0, -64)
 log_type = "log2"
 
 [node name="Log2" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
-position = Vector2(256, -64)
+position = Vector2(320, -64)
 log_type = "log2"
 
 [node name="Log3" parent="Water/River Lane2" instance=ExtResource("8_v2i3l")]
 position = Vector2(768, -64)
-log_type = "log2"
+log_type = "log4"
 
 [node name="River Lane" type="Node2D" parent="Water"]
 position = Vector2(64, 480)
 
 [node name="Turtles" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
-position = Vector2(768, 0)
+turtle_type = "turtle2"
 
 [node name="Turtles2" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
-position = Vector2(512, 0)
+position = Vector2(896, 0)
+turtle_type = "turtle4"
 
 [node name="Turtles3" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
-position = Vector2(384, 0)
-
-[node name="Turtles4" parent="Water/River Lane" instance=ExtResource("8_tcihd")]
-position = Vector2(64, 0)
+position = Vector2(512, 0)
+turtle_type = "turtle3"
 
 [node name="ScoreLabel" type="RichTextLabel" parent="."]
 anchors_preset = 5
