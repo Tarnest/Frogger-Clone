@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://btk7lrkyfl3ns"]
+[gd_scene load_steps=10 format=3 uid="uid://jec86bpjhfp6"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_yfudw"]
 [ext_resource type="Texture2D" uid="uid://cb147b76ai7i8" path="res://Images/log_spritesheet.png" id="2_7n2gw"]

@@ -86,7 +86,6 @@ func move(dir):
 
 
 func die():
-	queue_free()
 	death.emit(start_position)
 
 

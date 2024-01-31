@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://blfgg1dogu71c"]
+[gd_scene load_steps=9 format=3 uid="uid://bogux4hw0g73l"]
 
 [ext_resource type="Script" path="res://Scripts/obstacle.gd" id="1_l0qjb"]
 [ext_resource type="Texture2D" uid="uid://bd7amvvwbffc" path="res://Images/turtles_spritesheet.png" id="2_ujidw"]
