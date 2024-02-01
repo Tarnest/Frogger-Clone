@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_6fn0q"]
 [ext_resource type="PackedScene" uid="uid://bsett54nxh4fc" path="res://Scenes/player.tscn" id="2_ekwsk"]
-[ext_resource type="PackedScene" uid="uid://qgrcbvdylmjj" path="res://Scenes/ground_tiles.tscn" id="3_tdq7t"]
-[ext_resource type="PackedScene" path="res://Scenes/frog_home.tscn" id="4_8j4np"]
+[ext_resource type="PackedScene" uid="uid://ca85vgf8stm54" path="res://Scenes/ground_tiles.tscn" id="3_tdq7t"]
+[ext_resource type="PackedScene" uid="uid://de0saa44mx3h2" path="res://Scenes/frog_home.tscn" id="4_8j4np"]
 [ext_resource type="PackedScene" uid="uid://c8dwd6fpexkg4" path="res://Scenes/car.tscn" id="4_ctlov"]
-[ext_resource type="PackedScene" path="res://Scenes/home.tscn" id="4_v3bvn"]
+[ext_resource type="PackedScene" uid="uid://vgfnyrmaghw4" path="res://Scenes/home.tscn" id="4_v3bvn"]
 [ext_resource type="PackedScene" uid="uid://blfgg1dogu71c" path="res://Scenes/turtles.tscn" id="8_tcihd"]
 [ext_resource type="PackedScene" uid="uid://btk7lrkyfl3ns" path="res://Scenes/log.tscn" id="8_v2i3l"]
-[ext_resource type="PackedScene" path="res://Scenes/water.tscn" id="8_y204e"]
+[ext_resource type="PackedScene" uid="uid://bpgv8w6hvxt6k" path="res://Scenes/water.tscn" id="8_y204e"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_ay2d8"]
 specular_color = Color(0.478431, 0.952941, 0.552941, 1)
@@ -328,3 +328,4 @@ texture = SubResource("CanvasTexture_ay2d8")
 [connection signal="home" from="Player" to="." method="_on_player_home"]
 [connection signal="movement_points" from="Player" to="." method="_on_player_move_up"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]

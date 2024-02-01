@@ -86,6 +86,7 @@ func move(dir):
 
 
 func die():
+	queue_free()
 	death.emit(start_position)
 
 
@@ -141,3 +142,7 @@ func wait(num):
 
 func _on_game_camera_panned():
 	active = true
+
+
+func _on_timer_timeout():
+	queue_free()

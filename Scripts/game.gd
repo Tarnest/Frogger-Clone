@@ -53,8 +53,6 @@ func respawn(pos):
 
 func _on_player_death(pos):
 	remove_life()
-	if $Player != null:
-		$Player.queue_free()
 	if lives > 0:
 		respawn(pos)
 
