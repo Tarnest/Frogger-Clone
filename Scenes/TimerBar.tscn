@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://ik72kxa0mdv1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6m7wr"]
+bg_color = Color(0, 0.72549, 0.2, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_right = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdiv5"]
+bg_color = Color(0.133333, 0.643137, 0.847059, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[node name="TimerBar" type="ProgressBar"]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 300.0
+offset_bottom = 16.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6m7wr")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rdiv5")
+max_value = 30.0
+show_percentage = false

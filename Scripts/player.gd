@@ -74,7 +74,6 @@ func _process(_delta):
 		highest_position = position.y
 		movement_points.emit()
 
-
 func move(dir):	
 	var end_position = position + dir * TILE_SIZE
 	
@@ -145,4 +144,4 @@ func _on_game_camera_panned():
 
 
 func _on_timer_timeout():
-	queue_free()
+	die()
