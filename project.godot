@@ -59,3 +59,7 @@ restart_game={
 2d_physics/layer_2="Obstacle"
 2d_physics/layer_3="Water"
 2d_physics/layer_4="Lily pads"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
